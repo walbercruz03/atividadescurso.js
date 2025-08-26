@@ -2,7 +2,7 @@ import PromptSync from 'prompt-sync'
 const prompt = PromptSync()
 let valorreal = Number (prompt('Qual o valor em real deseja trocar: '))
 console.log ('Dólar, Euro, Peso, Libra, Franco!')
-let moeda = prompt ('Qual moeda deseja converter: ')
+let moeda = prompt ('Qual moeda deseja converter: ').toLowerCase()
 
 
    let dolar = 5.424
