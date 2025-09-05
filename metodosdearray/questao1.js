@@ -6,7 +6,7 @@ let palavras = texto.split (' ')
 let i
 for (i=0; i<palavras.length; i++){
 
-if (palavras [i]  ==='kray' || palavras [i] === 'cu'){
+if (palavras [i]  ==='kray' || palavras [i] === 'galado' || palavras [i] === 'fldp' || palavras [i] === 'nojento' ){
     palavras [i] = '***'
 }
-}console.log (palavras)
+}console.log (palavras.join(' '))
