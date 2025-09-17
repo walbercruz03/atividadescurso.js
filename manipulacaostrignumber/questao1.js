@@ -1,25 +1,22 @@
 import PromptSync from 'prompt-sync'
 const prompt = PromptSync()
 
-let nome1 = prompt ('digite o nome do primeiro jogador: ')
-let nome2 = prompt ('Digite o nome do segundo jogador: ')
-let i 
-let teste1 = []
-let teste2 = []
-for (i=0; i<3 ; i++){
-   let  teste = Number (prompt (`${nome1} - digite o ${i+1}º numero: `))
-   teste1.push(teste)
-   let test2 = Number (prompt (`${nome2} - digite o ${i+1}º numero: `))
-   teste2.push(test2)
+let nome1 = prompt ('Digite o nome do primeiro cadidato: ')
+let nome2 = prompt ('Digite o nome do segundo cadidato: ')
+let soma1 = 0
+let soma2 = 0
+
+for (let i = 1; i <= 3; i++) {
+    let nota1 = Math.floor( Math.random() * 6)
+    let nota2 = Math.floor(Math.random() * 6)
+    soma1 += nota1
+    soma2 += nota2
+    console.log(`A nota do ${i}º teste de ${nome1} foi: ${nota1.toFixed(2)}`)
+    console.log(`A nota do ${i}º teste do ${nome2} foi: ${nota2.toFixed(2)}`)
+
 }
-let result1 = teste1.reduce((valor,soma) => soma + valor)
-
-let result2 = teste2.reduce ((valor,soma) => soma + valor)
-
-if (result1>result2){
-   console.log (`${nome1} Parabéns você ganhou, Resultado: ${result1}`)
-   
+if (soma1 > soma2) {
+    console.log(`Parabéns '${nome1}', você ganhou, total de pontos: ${soma1.toFixed(2)}`)
 }else {
-   console.log (`${nome2} Parabéns você ganhou, Resultado: ${result2}`)
+    console.log(`Parabéns '${nome2}', você ganhou. total de pontos: ${soma2.toFixed(2)}`)
 }
-
