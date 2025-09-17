@@ -3,7 +3,7 @@ import PromptSync from "prompt-sync";
 const prompt = PromptSync();
 
 
-let nomes = prompt('Digite o nome do primeiro funcionário: ')
+let nomes = prompt('Digite os nomes dos funcionário: ')
 let nomefunc = nomes.split(',').map(nome => nome.trim())
 
 
