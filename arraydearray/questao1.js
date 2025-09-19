@@ -26,10 +26,19 @@ if (indicedia>= 0 && indicedia < dias.length && indiceturno >= 0 && indiceturno<
 
 for (let i = 0; i<cardapiodias.length;i++){
     for (let j =0 ; j<cardapiodias[i].length;j++){
-        let adicionar = prompt (`Digite o item para adicionar ${dias[i]} - ${turnos[j]} (Ou enter para pular)`)
+        let adicionar = prompt (`Digite o item para adicionar ${dias[i]} - ${turnos[j]} (Ou enter para pular) `)
         if (adicionar){
             cardapiodias[i][j]+= ',' + adicionar
             
         }
     }
 }console.table (cardapiodias)
+
+for (i = 0 ; i<cardapiodias.length;i++){
+    for (j=0;j<cardapiodias[i].length;j++){
+        let remover = prompt (`Digite o indice que deseja remover do cardapio ${dias[i]} - ${turnos[j]} (Ou enter para pular) `)
+        if (remover){
+        cardapiodias[i][j]+= ',' - remover
+        }
+    }
+} console.table (cardapiodias)
