@@ -32,8 +32,7 @@ export class pessoa {
        return this.#renda
     }
     metmostrardados(){
-        console.log (`Seu nome: ${this.#nome} \nSeu endereço é: ${this.#endereco}
-        \nSua renda:$ ${this.#renda}`)
+        console.log (`Seu nome: ${this.#nome} \nSeu endereço é: ${this.#endereco} \nSua renda:$ ${this.#renda}`)
     }
 }
 
