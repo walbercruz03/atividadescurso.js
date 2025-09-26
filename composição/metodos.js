@@ -23,6 +23,8 @@ export class Memoria {
             this.#capacidade -= qtd
 
             console.log (`Você usou ${qtd} resta ${this.#capacidade}`)
+        }else {
+            console.log ('Memoria insuficiente!')
         }
     }
 
