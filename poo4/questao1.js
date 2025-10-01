@@ -20,8 +20,6 @@ export class Pessoa {
     }
 }
 
-let dados = new Pessoa ()
-dados.metmostrainformacoes()
 
 export class Funcionario extends Pessoa {
 
@@ -41,16 +39,22 @@ get salario (){
     return this.#matricula
 }set matricula (mat){
     this.#matricula = mat
-}calculohoraext(calc){
-     calc = Number (prompt ('Digite as horas extras: '))
-     let resultado = (calc * 15).toFixed(2)
-     console.log (`Valor de horas extras:$${resultado}`)
 }mostrartodas(){
     super.metmostrainformacoes()
-    
+    this.cargo = prompt ('Qual seu cargo? ')
+    this.#matricula = prompt ('Digite sua matricula: ')
+    this.#salario = prompt ('Digite seu salario: ')
+    console.log (`Cargo: ${this.cargo} \nMatricula: ${this.#matricula} \nSalario: $${this.#salario}`)
+}calculohoraext(calc){
+    calc = Number (prompt ('Digite as horas extras: '))
+    let resultado = (calc * 15).toFixed(2)
+    console.log (`Valor de horas extras:$${resultado}`)
 }
 
 }
 
-let calculohx = new Funcionario ()
-calculohx.calculohoraext()
+
+let dadosfunc = new Funcionario()
+dadosfunc.mostrartodas()
+let calchx = new Funcionario ()
+calchx.calculohoraext()
