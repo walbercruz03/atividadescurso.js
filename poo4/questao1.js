@@ -43,18 +43,36 @@ get salario (){
     super.metmostrainformacoes()
     this.cargo = prompt ('Qual seu cargo? ')
     this.#matricula = prompt ('Digite sua matricula: ')
-    this.#salario = prompt ('Digite seu salario: ')
+    this.#salario = Number (prompt ('Digite seu salario: '))
     console.log (`Cargo: ${this.cargo} \nMatricula: ${this.#matricula} \nSalario: $${this.#salario}`)
-}calculohoraext(calc){
-    calc = Number (prompt ('Digite as horas extras: '))
+}calculohoraext(){
+    let calc = Number (prompt ('Digite as horas extras: '))
     let resultado = (calc * 15).toFixed(2)
-    console.log (`Valor de horas extras:$${resultado}`)
+    return resultado
+    // console.log (`Valor de horas extras:$${resultado}`)
+}metcalculasal(){
+    let calc = this.calculohoraext()
+    console.log (calc, "-", this.#salario)
+    let calhs
+    if (calc>0){
+        calhs = calc + this.#salario - (this.#salario * 0.09)
+        console.log (`Salario + HR: ${calhs}`)
+    }else {
+        calhs = calc + this.#salario - (this.#salario * 0.075)
+        console.log (`Salario sem HR + desconto de 7.5: ${calhs}`)
+    }
 }
 
 }
 
 
 let dadosfunc = new Funcionario()
-dadosfunc.mostrartodas()
-let calchx = new Funcionario ()
-calchx.calculohoraext()
+//dadosfunc.mostrartodas()
+let calculadora = new Funcionario ()
+//console.log (`Valor de horas extras:$${calculadora.calculohoraext()}`)
+calculadora.salario = Number (prompt ('Digite seu salario: '))
+
+calculadora.metcalculasal()
+
+
+
