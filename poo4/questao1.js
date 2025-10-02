@@ -25,11 +25,12 @@ export class Funcionario extends Pessoa {
 
 #salario
 #matricula
-constructor (cpf,datanascimento,nome,cargo,salario,matricula){
+constructor (cpf,datanascimento,nome,cargo,salario,matricula,calc){
     super (cpf,datanascimento,nome)
     this.cargo = cargo
     this.#salario = salario
     this.#matricula = matricula
+    this.calc = calc
 }
 get salario (){
     return this.#salario
@@ -43,36 +44,39 @@ get salario (){
     super.metmostrainformacoes()
     this.cargo = prompt ('Qual seu cargo? ')
     this.#matricula = prompt ('Digite sua matricula: ')
-    this.#salario = Number (prompt ('Digite seu salario: '))
-    console.log (`Cargo: ${this.cargo} \nMatricula: ${this.#matricula} \nSalario: $${this.#salario}`)
+    // this.#salario = Number (prompt ('Digite seu salario: '))
+    console.log (`Cargo: ${this.cargo} \nMatricula: ${this.#matricula}`)
 }calculohoraext(){
-    let calc = Number (prompt ('Digite as horas extras: '))
-    let resultado = (calc * 15).toFixed(2)
+    this.calc = Number (prompt ('Digite as horas extras: '))
+    let resultado = (this.calc * 15)
     return resultado
-    // console.log (`Valor de horas extras:$${resultado}`)
 }metcalculasal(){
-    let calc = this.calculohoraext()
-    console.log (calc, "-", this.#salario)
+    let calcc = this.calculohoraext()
+    console.log (this.calc, "-", this.#salario)
     let calhs
-    if (calc>0){
-        calhs = calc + this.#salario - (this.#salario * 0.09)
-        console.log (`Salario + HR: ${calhs}`)
+    if (this.calc>0){
+        calhs = calcc + this.#salario - (this.#salario * 0.09)
+        console.log (`Salario + HR: $${calhs}`)
     }else {
-        calhs = calc + this.#salario - (this.#salario * 0.075)
-        console.log (`Salario sem HR + desconto de 7.5: ${calhs}`)
+        calhs = calcc + this.#salario - (this.#salario * 0.075)
+        console.log (`Salario sem HR + desconto de 7.5: $${calhs}`)
     }
+}metcontracheque(){
+let calcc = this.calculohoraext()
+let calhs
+if (this.calc>0){
+    calhs = calcc + this.#salario - (this.#salario * 0.09)
+        console.log (`Seu salario: ${this.#salario}\nNumero de horas extras: ${this.calc} \nSalario + HR com desconto de 9%: $${calhs}`)
+}
 }
 
-}
+} 
 
 
-let dadosfunc = new Funcionario()
-//dadosfunc.mostrartodas()
-let calculadora = new Funcionario ()
-//console.log (`Valor de horas extras:$${calculadora.calculohoraext()}`)
-calculadora.salario = Number (prompt ('Digite seu salario: '))
-
-calculadora.metcalculasal()
-
+let funcionario = new Funcionario()
+funcionario.mostrartodas()
+funcionario.salario = Number (prompt ('Digite seu salario: '))
+funcionario.metcalculasal()
+funcionario.metcontracheque()
 
 
